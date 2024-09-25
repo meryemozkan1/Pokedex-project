@@ -11,6 +11,5 @@ Bu proje, kullanıcıların çeşitli Pokémon türlerini keşfetmelerine, özel
 - JavaScript <br>
 
 <h1> Ekran Görüntü <h1>
-<hr>
 
-![](Pokedex.gif)
+  ![](Pokedex.gif)
