@@ -12,4 +12,4 @@ Bu proje, kullanıcıların çeşitli Pokémon türlerini keşfetmelerine, özel
 
 <h1> Ekran Görüntü <h1>
 
-  ![](Pokedex.gif)
+  ![](Pokedex.gif) 
