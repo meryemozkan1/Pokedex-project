@@ -25,21 +25,23 @@ const bg_color = {
 
 searchBtn.addEventListener("click", () => {
   search.classList.toggle("active");
+  if (search.classList.contains("active")) {
+    searcInput.focus();
+  }
 });
 
-searcInput.addEventListener("input", (e) => {
-  //console.log(searcInput.value);
-  const searchValue = searcInput.value.toLowerCase();
-  const pokemonNames = document.querySelectorAll(".poke-name");
-  //console.log(pokemonNames);
-  pokemonNames.forEach((pokemonName) => {
-    if (pokemonName.innerHTML.toLocaleLowerCase().includes(searchValue)) {
-      pokemonName.parentElement.parentElement.style.display = "block";
-    } else {
-      pokemonName.parentElement.parentElement.style.display = "none";
-    }
+const filterPokemons = () => {
+  const searchValue = searcInput.value.trim().toLocaleLowerCase();
+  poke_container.querySelectorAll(".pokemon").forEach((pokemonCard) => {
+    const pokemonName = pokemonCard
+      .querySelector(".poke-name")
+      .textContent.trim()
+      .toLocaleLowerCase();
+    pokemonCard.hidden = !pokemonName.includes(searchValue);
   });
-});
+};
+
+searcInput.addEventListener("input", filterPokemons);
 
 const fetchPokemons = async () => {
   for (let i = 1; i < pokemon_count; i++) {
@@ -48,7 +50,7 @@ const fetchPokemons = async () => {
 };
 
 const getPokemon = async (id) => {
-  const url = `https://pokeapi.co/api/v2/pokemon/${id} `;
+  const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
   const res = await fetch(url);
   const data = await res.json();
   //console.log(data);
@@ -91,6 +93,7 @@ const createPokemonCard = (pokemon) => {
 
   pokemonDiv.innerHTML = pokemonDivInnerHTML;
   poke_container.appendChild(pokemonDiv);
+  filterPokemons();
 };
 
 fetchPokemons();

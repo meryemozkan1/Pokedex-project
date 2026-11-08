@@ -2,6 +2,10 @@
 
 body {
   font-family: "Sniglet", cursive;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px 12px;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,7 +37,7 @@ h1 {
 }
 
 .searchInput,
-.searchBtn :focus {
+.searchBtn:focus {
   outline: none;
 }
 
@@ -56,7 +60,7 @@ h1 {
 }
 
 .search.active .searchBtn {
-  transform: transLatex(198px);
+  transform: translateX(198px);
   background-color: #fff;
   color: tomato;
 }
@@ -66,10 +70,18 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  max-width: 85%;
+  align-items: stretch;
+  width: min(100%, 1200px);
 }
+
+.pokemon[hidden] {
+  display: none;
+}
+
 .pokemon {
+  box-sizing: border-box;
+  flex: 0 1 158px;
+  min-width: 0;
   margin: 10px;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
@@ -86,7 +98,7 @@ h1 {
 }
 
 .image-container img {
-  width: 180px;
+  width: min(100%, 180px);
   opacity: 0.75;
   transition: all 0.3s ease;
 }
@@ -116,4 +128,24 @@ h1 {
 }
 .poke-type {
   margin-top: 10px;
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+  }
+
+  .pokemon {
+    flex-basis: 145px;
+    padding: 14px;
+  }
+
+  .search.active .searchInput {
+    width: min(200px, calc(100vw - 80px));
+  }
+
+  .search.active .searchBtn {
+    transform: translateX(min(198px, calc(100vw - 82px)));
+  }
 }

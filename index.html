@@ -12,19 +12,27 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="style.css" />
-    <!--<script src="app.js" defer></script>-->
-    <title>Pokedex Guide</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='29' fill='%23f44336' stroke='%23222' stroke-width='4'/%3E%3Cpath d='M4 32h56a28 28 0 0 1-56 0' fill='%23fff'/%3E%3Cpath d='M4 32h56' stroke='%23222' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='9' fill='%23fff' stroke='%23222' stroke-width='4'/%3E%3C/svg%3E"
+    />
+    <title>Pokedex Guide | Pokémon Explorer</title>
   </head>
   <body>
     <h1>Pokedex Guide</h1>
     <div class="search ">
-      <input type="text" class="searchInput" />
+      <input
+        type="search"
+        class="searchInput"
+        placeholder="Search Pokémon..."
+        aria-label="Search Pokémon by name"
+      />
       <button class="searchBtn">
         <i class="fa-solid fa-binoculars"></i>
       </button>
     </div>
     <div class="poke-container"></div>
-    </div>
     <script src="app.js"></script>
   </body>
 </html>
